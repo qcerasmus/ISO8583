@@ -211,25 +211,25 @@ private:
         settings[BITMAP_1::_27_AUTHORIZING_ID_RESPONSE_LENGTH] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_28_AMOUNT_TRANSACTION_FEE;
-        temp_setting.type = TYPES::numeric;
+        temp_setting.type = TYPES::journal;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 9;
         settings[BITMAP_1::_28_AMOUNT_TRANSACTION_FEE] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_29_AMOUNT_SETTLEMENT_FEE;
-        temp_setting.type = TYPES::numeric;
+        temp_setting.type = TYPES::journal;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 9;
         settings[BITMAP_1::_29_AMOUNT_SETTLEMENT_FEE] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_30_AMOUNT_TRANSACTION_PROCESSING_FEE;
-        temp_setting.type = TYPES::numeric;
+        temp_setting.type = TYPES::journal;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 9;
         settings[BITMAP_1::_30_AMOUNT_TRANSACTION_PROCESSING_FEE] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_31_AMOUNT_SETTLEMENT_PROCESSING_FEE;
-        temp_setting.type = TYPES::numeric;
+        temp_setting.type = TYPES::journal;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 9;
         settings[BITMAP_1::_31_AMOUNT_SETTLEMENT_PROCESSING_FEE] = temp_setting;
@@ -629,7 +629,7 @@ private:
         settings[BITMAP_2::_096_MESSAGE_SECURITY_CODE] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_097_NET_SETTLEMENT_AMOUNT;
-        temp_setting.type = TYPES::alpha_numeric;
+        temp_setting.type = TYPES::journal;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 17;
         settings[BITMAP_2::_097_NET_SETTLEMENT_AMOUNT] = temp_setting;
