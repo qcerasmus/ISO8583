@@ -30,6 +30,7 @@ public:
     const WORD CYAN = FOREGROUND_GREEN | FOREGROUND_BLUE;
     const WORD WHITE = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
     const WORD YELLOW = FOREGROUND_RED | FOREGROUND_GREEN;
+    const WORD PURPLE = FOREGROUND_RED | FOREGROUND_BLUE;
 
     wincolor_sink(HANDLE out_handle, color_mode mode);
     ~wincolor_sink() override;

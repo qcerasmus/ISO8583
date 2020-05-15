@@ -47,7 +47,7 @@ public:
 private:
     void setup_bitmap_1()
     {
-        setting temp_setting;
+        setting temp_setting{};
         temp_setting.bit = BITMAP_1::_01_SECOND_BITMAP;
         temp_setting.type = TYPES::binary;
         temp_setting.field_length = FIELD_LENGTH::fixed;
@@ -435,18 +435,18 @@ private:
 
     void setup_bitmap_2()
     {
-        setting temp_setting;
+        setting temp_setting{};
         temp_setting.bit = BITMAP_2::_065_EXTENDED_BITMAP_INDICATOR;
         temp_setting.type = TYPES::binary;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 1;
         settings[BITMAP_2::_065_EXTENDED_BITMAP_INDICATOR] = temp_setting;
 
-        temp_setting.bit = BITMAP_2::_066_SETTLMENT_CODE;
+        temp_setting.bit = BITMAP_2::_066_SETTLEMENT_CODE;
         temp_setting.type = TYPES::numeric;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 1;
-        settings[BITMAP_2::_066_SETTLMENT_CODE] = temp_setting;
+        settings[BITMAP_2::_066_SETTLEMENT_CODE] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_067_EXTENDED_PAYMENT_CODE;
         temp_setting.type = TYPES::numeric;
@@ -454,11 +454,11 @@ private:
         temp_setting.max_length = 2;
         settings[BITMAP_2::_067_EXTENDED_PAYMENT_CODE] = temp_setting;
 
-        temp_setting.bit = BITMAP_2::_068_RECIEVING_INSTITUTION_COUNTRY_CODE;
+        temp_setting.bit = BITMAP_2::_068_RECEIVING_INSTITUTION_COUNTRY_CODE;
         temp_setting.type = TYPES::numeric;
         temp_setting.field_length = FIELD_LENGTH::fixed;
         temp_setting.max_length = 3;
-        settings[BITMAP_2::_068_RECIEVING_INSTITUTION_COUNTRY_CODE] = temp_setting;
+        settings[BITMAP_2::_068_RECEIVING_INSTITUTION_COUNTRY_CODE] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_069_SETTLEMENT_INSTITUTION_COUNTRY_CODE;
         temp_setting.type = TYPES::numeric;

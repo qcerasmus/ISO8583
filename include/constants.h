@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <cstddef>
 
 /**
  * namespace for the MTI Message types.
@@ -106,9 +105,9 @@ namespace BITMAP_1
 namespace BITMAP_2
 {
     constexpr int _065_EXTENDED_BITMAP_INDICATOR = 64;
-    constexpr int _066_SETTLMENT_CODE = 65;
+    constexpr int _066_SETTLEMENT_CODE = 65;
     constexpr int _067_EXTENDED_PAYMENT_CODE = 66;
-    constexpr int _068_RECIEVING_INSTITUTION_COUNTRY_CODE = 67;
+    constexpr int _068_RECEIVING_INSTITUTION_COUNTRY_CODE = 67;
     constexpr int _069_SETTLEMENT_INSTITUTION_COUNTRY_CODE = 68;
     constexpr int _070_NETWORK_MANAGEMENT_INFO_CODE = 69;
     constexpr int _071_MESSAGE_NUMBER = 70;
@@ -211,7 +210,7 @@ namespace RESPONSE_CODES_1987
     constexpr std::string_view TRANSACTION_NOT_ALLOWED_AT_TERMINAL = "58";
     constexpr std::string_view SUSPECTED_FRAUD = "59";
     constexpr std::string_view ACTIVITY_AMOUNT_LIMIT_EXCEEDED = "61";
-    constexpr std::string_view RESTRICTED_CARD = "62"; //for exampleein country exclusion table
+    constexpr std::string_view RESTRICTED_CARD = "62"; //for example in country exclusion table
     constexpr std::string_view SECURITY_VIOLATION = "63";
     constexpr std::string_view ACTIVITY_AMOUNT_LIMIT_EXCEEDED_1 = "64";
     constexpr std::string_view RESPONSE_RECEIVED_TOO_LATE = "68";
@@ -229,13 +228,13 @@ namespace RESPONSE_CODES_1987
     constexpr std::string_view TRANSACTION_CANNOT_BE_COMPLETED = "93"; //violation of law
     constexpr std::string_view DUPLICATE_TRANSMISSION = "94";
     constexpr std::string_view RECONCILE_ERROR = "95";
-    constexpr std::string_view SYSTEM_MAILFUNCTION = "96"; //or certain field error conditions
+    constexpr std::string_view SYSTEM_MALFUNCTION = "96"; //or certain field error conditions
     constexpr std::string_view SURCHARGE_AMOUNT_NOT_PERMITTED_ON_VISA_CARDS = "B1"; //US Acquirers only
-    constexpr std::string_view FORCE_STIP = "N0";
+    constexpr std::string_view FORCE_STRIP = "N0";
     constexpr std::string_view CASH_SERVICE_NOT_AVAILABLE = "N3";
-    constexpr std::string_view CASHBACK_REQUEST_EXCEEDS_ISSUER_LIMIT = "N4";
+    constexpr std::string_view CASH_BACK_REQUEST_EXCEEDS_ISSUER_LIMIT = "N4";
     constexpr std::string_view DECLINE_FOR_CVV2_FAILURE = "N7";
-    constexpr std::string_view INVALID_BILLER_INFO = "P2";
+    constexpr std::string_view INVALID_BILLING_INFO = "P2";
     constexpr std::string_view PIN_CHANGE_REQUEST_DECLINED = "P5";
     constexpr std::string_view UNSAFE_PIN = "P6";
     constexpr std::string_view CARD_AUTHENTICATION_FAILED = "Q1";

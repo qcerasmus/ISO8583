@@ -25,7 +25,7 @@ SPDLOG_INLINE wincolor_sink<ConsoleMutex>::wincolor_sink(HANDLE out_handle, colo
     in_console_ = ::GetConsoleMode(out_handle, &console_mode) != 0;
 
     set_color_mode(mode);
-    colors_[level::trace] = WHITE;
+    colors_[level::trace] = PURPLE;
     colors_[level::debug] = CYAN;
     colors_[level::info] = GREEN;
     colors_[level::warn] = YELLOW | BOLD;
@@ -62,15 +62,11 @@ void SPDLOG_INLINE wincolor_sink<ConsoleMutex>::log(const details::log_msg &msg)
 
     if (should_do_colors_ && msg.color_range_end > msg.color_range_start)
     {
-        // before color range
-        print_range_(formatted, 0, msg.color_range_start);
-
         // in color range
         auto orig_attribs = set_foreground_color_(colors_[msg.level]);
-        print_range_(formatted, msg.color_range_start, msg.color_range_end);
+        print_range_(formatted, 0, formatted.size());
         // reset to orig colors
         ::SetConsoleTextAttribute(out_handle_, orig_attribs);
-        print_range_(formatted, msg.color_range_end, formatted.size());
     }
     else // print without colors if color range is invalid (or color is disabled)
     {
