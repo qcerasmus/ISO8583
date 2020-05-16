@@ -7,7 +7,7 @@
 int main()
 {
     auto console = spdlog::stdout_color_mt("console");
-    console->set_level(spdlog::level::trace);
+    console->set_level(spdlog::level::debug);
 
     //This could be something that we received over the network.
     char message_received[] = { 0x30, 0x32, 0x30, 0x30, //MTI TYPE
@@ -31,6 +31,8 @@ int main()
         console->debug("DE: {0}\t VALUE: {1}", (value.first) + 1, value.second);
     }
 
+    console->debug("resetting");
+
     i.reset();
     i.mti_message = "0200";
     i.set_value(BITMAP_1::_02_PAN, "1234567890123456");
@@ -38,9 +40,15 @@ int main()
     i.set_value(BITMAP_1::_22_POINT_OF_SERVICE_ENTRY_MODE, "ABC");
     i.set_value(BITMAP_1::_63_RESERVED_PRIVATE_3, "1234567890123456789");
     i.set_value(BITMAP_2::_101_FILE_NAME, "DEF");
-    console->trace(i.generate_iso_message());
+    const auto generated_iso_message = i.generate_iso_message();
+    console->debug(fmt::format("generated iso string: {0}", generated_iso_message));
     i.reset();
-    i.process_iso_message("0200C2000400000000041612345678901234560609173030ABC0191234567890123456789000000000800000003DEF");
+    console->debug("processing the generated string");
+    i.process_iso_message(generated_iso_message);
+    for (const auto value : i.values)
+    {
+        console->debug("DE: {0}\t VALUE: {1}", (value.first) + 1, value.second);
+    }
 
     return 0;
 }

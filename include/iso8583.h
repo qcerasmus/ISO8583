@@ -182,122 +182,17 @@ inline std::string iso8583::generate_iso_message()
 inline void iso8583::setup_bitmap(const std::string_view bitmap_string)
 {
     bitmap.reset();
-    auto count = 0;
     logger->trace(fmt::format("setting up bitmap with string: {0}", bitmap_string));
-    for(auto i = 0; i < 16; i++)
+
+    for (auto i = 15, j = 63; i >= 0; i--, j -= 4)
     {
-        if ((bitmap_string[i] & 'F') == 'F')
-        {
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & 'E') == 'E')
-        {
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & 'D') == 'D')
-        {
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & 'C') == 'C')
-        {
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & 'B') == 'B')
-        {
-            bitmap[count] = true; count++;
-            count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & 'A') == 'A')
-        {
-            bitmap[count] = true; count++;
-            count++;
-            bitmap[count] = true; count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & '9') == '9')
-        {
-            bitmap[count] = true; count++;
-            count++;
-            count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & '8') == '8')
-        {
-            bitmap[count] = true; count++;
-            count++;
-            count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & '7') == '7')
-        {
-            count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & '6') == '6')
-        {
-            count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & '5') == '5')
-        {
-            count++;
-            bitmap[count] = true; count++;
-            count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & '4') == '4')
-        {
-            count++;
-            bitmap[count] = true; count++;
-            count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & '3') == '3')
-        {
-            count++;
-            count++;
-            bitmap[count] = true; count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & '2') == '2')
-        {
-            count++;
-            count++;
-            bitmap[count] = true; count++;
-            count++;
-        }
-        else if ((bitmap_string[i] & '1') == '1')
-        {
-            count++;
-            count++;
-            count++;
-            bitmap[count] = true; count++;
-        }
-        else if ((bitmap_string[i] & '0') == '0')
-        {
-            count++;
-            count++;
-            count++;
-            count++;
-        }
+        std::bitset<4> temp_bit_set(bitmap_string[i]);
+        if (i == 0)
+            reverse_bitset(temp_bit_set);
+        bitmap[j] = temp_bit_set[0];
+        bitmap[j - 1] = temp_bit_set[1];
+        bitmap[j - 2] = temp_bit_set[2];
+        bitmap[j - 3] = temp_bit_set[3];
     }
     logger->trace("bitmap: {0}", bitmap.to_string());
 }
