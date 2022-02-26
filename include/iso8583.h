@@ -3,7 +3,6 @@
 #include <bitset>
 #include <iomanip>
 #include <sstream>
-#include <spdlog/spdlog.h>
 
 #include "settings.h"
 
@@ -44,7 +43,6 @@ private:
     std::bitset<64> bitmap;
     std::bitset<64> second_bitmap;
     std::string_view full_message;
-    std::shared_ptr<spdlog::logger> logger;
     unsigned long long position = 20;
 
     /**
@@ -78,7 +76,6 @@ void iso8583::reverse_bitset(std::bitset<N>& b)
 
 inline iso8583::iso8583(const RESPONSE_CODES response_code)
 {
-    logger = spdlog::get("console");
     s = std::make_unique<setup>(response_code);
 }
 
@@ -183,7 +180,6 @@ inline std::string iso8583::generate_iso_message()
 inline void iso8583::setup_bitmap(const std::string_view bitmap_string)
 {
     bitmap.reset();
-    logger->trace(fmt::format("setting up bitmap with string: {0}", bitmap_string));
 
     for (auto i = 15, j = 63; i >= 0; i--, j -= 4)
     {
@@ -195,7 +191,6 @@ inline void iso8583::setup_bitmap(const std::string_view bitmap_string)
         bitmap[j - 2] = temp_bit_set[2];
         bitmap[j - 3] = temp_bit_set[3];
     }
-    logger->trace("bitmap: {0}", bitmap.to_string());
 }
 
 inline void iso8583::read_values()
@@ -217,7 +212,6 @@ inline void iso8583::read_values()
         if (setting.field_length == FIELD_LENGTH::fixed)
         {
             auto value = std::string(full_message, position, setting.max_length);
-            logger->trace(fmt::format("field: {0} value: {1}", i + 1, value));
             position += setting.max_length;
             values[i] = value;
         }
@@ -235,7 +229,6 @@ inline void iso8583::read_values()
             const auto length = std::stoi(length_as_string);
             auto value = std::string(full_message, position, length);
             position += length;
-            logger->trace(fmt::format("field: {0} value: {1}", i + 1, value));
             values[i] =  value;
         }
         else if (setting.field_length == FIELD_LENGTH::tripple_length_variable)
@@ -245,7 +238,6 @@ inline void iso8583::read_values()
             const auto length = std::stoi(length_as_string);
             auto value = std::string(full_message, position, length);
             position += length;
-            logger->trace(fmt::format("field: {0} value: {1}", i + 1, value));
             values[i] =  value;
         }
     }
