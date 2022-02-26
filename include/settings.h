@@ -34,18 +34,24 @@ public:
     int max_length;
 };
 
+enum class RESPONSE_CODES
+{
+    V1987,
+    V1993
+};
+
 class setup
 {
 public:
-    setup()
+    setup(const RESPONSE_CODES response_code)
     {
-        setup_bitmap_1();
+        setup_bitmap_1(response_code);
         setup_bitmap_2();
     }
     std::map<int, setting> settings;
 
 private:
-    void setup_bitmap_1()
+    void setup_bitmap_1(const RESPONSE_CODES response_code)
     {
         setting temp_setting{};
         temp_setting.bit = BITMAP_1::_01_SECOND_BITMAP;
@@ -279,7 +285,7 @@ private:
         temp_setting.bit = BITMAP_1::_39_RESPONSE_CODE;
         temp_setting.type = TYPES::alpha_numeric;
         temp_setting.field_length = FIELD_LENGTH::fixed;
-        temp_setting.max_length = 2;
+        temp_setting.max_length = response_code == RESPONSE_CODES::V1987 ? 2 : 3;
         settings[BITMAP_1::_39_RESPONSE_CODE] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_40_SERVICE_RESTRICTION_CODE;

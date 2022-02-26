@@ -14,7 +14,7 @@ public:
      * @brief iso8583
      * Sets up the logger to be used in this class.
      */
-    iso8583();
+    iso8583(RESPONSE_CODES response_code);
 
     /**
      * @brief process_iso_message
@@ -40,7 +40,7 @@ public:
 
     std::string mti_message;
 private:
-    setup s;
+    std::unique_ptr<setup> s;
     std::bitset<64> bitmap;
     std::bitset<64> second_bitmap;
     std::string_view full_message;
@@ -76,9 +76,10 @@ void iso8583::reverse_bitset(std::bitset<N>& b)
     }
 }
 
-inline iso8583::iso8583()
+inline iso8583::iso8583(const RESPONSE_CODES response_code)
 {
     logger = spdlog::get("console");
+    s = std::make_unique<setup>(response_code);
 }
 
 inline bool iso8583::process_iso_message(const std::string_view iso_message)
@@ -103,7 +104,7 @@ inline void iso8583::reset()
 
 inline bool iso8583::set_value(int bit, const std::string& value)
 {
-    const auto setting = s.settings[bit];
+    const auto setting = s->settings[bit];
     if (bit < 0 || bit > 128 || value.empty())
         return false;
     if (value.length() > static_cast<size_t>(setting.max_length))
@@ -211,7 +212,7 @@ inline void iso8583::read_values()
         if (!bitmap.test(static_cast<size_t>(i) - (second_bitmap_bool ? 64 : 0)))
             continue;
 
-        const auto setting = s.settings[i];
+        const auto setting = s->settings[i];
 
         if (setting.field_length == FIELD_LENGTH::fixed)
         {

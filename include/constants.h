@@ -249,5 +249,192 @@ namespace RESPONSE_CODES_1987
 /*I'm lazy for now so no 1993 version yet...*/
 namespace RESPONSE_CODES_1993
 {
+    namespace MESSAGES_0
+    {
+        constexpr std::string_view APPROVED = "000";
+        constexpr std::string_view HONOUR_WITH_IDENTIFICATION = "001";
+        constexpr std::string_view APPROVED_FOR_PARTIAL_AMOUNT = "002";
+        constexpr std::string_view APPROVED_VIP = "003";
+        constexpr std::string_view APPROVED_UPDATE_TRACK_3 = "004";
+        constexpr std::string_view APPROVED_ACCOUNT_TYPE_SPECIFIED_BY_CARD_ISSUER = "005";
+        constexpr std::string_view APPROVED_FOR_PARTIAL_AMOUNT_ACCOUNT_TYPE_SPECIFIED_BY_CARD_ISSUER = "006";
+        constexpr std::string_view APPROVED_UPDATE_ICC = "007";
+        //008-059 RESERVED FOR ISO USE
+        //060-079 RESERVED FOR NATIONAL USE
+        //080-099 RESERVED FOR PRIVATE USE
+    }
+    //DENY TRANSACTION, DON'T PICK UP CARD
+    namespace MESSAGES_100
+    {
+        constexpr std::string_view DO_NOT_HONOUR = "100";
+        constexpr std::string_view EXPIRED_CARD = "101";
+        constexpr std::string_view SUSPECTED_FRAUD = "102";
+        constexpr std::string_view CARD_ACCEPTOR_CONTACT_ACQUIRER = "103";
+        constexpr std::string_view RESTRICTED_CARD = "104";
+        constexpr std::string_view CARD_ACCEPTOR_CALL_ACQUIRERS_SECURITY_DEPARTMENT = "105";
+        constexpr std::string_view ALLOWABLE_PIN_TRIES_EXCEEDED = "106";
+        constexpr std::string_view REFER_TO_CARD_ISSUER = "107";
+        constexpr std::string_view REFER_TO_CARD_ISSUER_S_SPECIAL_CONDITIONS = "108";
+        constexpr std::string_view INVALID_MERCHANT = "109";
+        constexpr std::string_view INVALID_AMOUNT = "110";
+        constexpr std::string_view INVALID_CARD_NUMBER = "111";
+        constexpr std::string_view PIN_DATA_REQUIRED = "112";
+        constexpr std::string_view UNACCEPTABLE_FEE = "113";
+        constexpr std::string_view NO_ACCOUNT_OF_TYPE_REQUESTED = "114";
+        constexpr std::string_view REQUESTED_FUNCTION_NOT_SUPPORT = "115";
+        constexpr std::string_view NOT_SUFFICIENT_FUNDS = "116";
+        constexpr std::string_view INCORRECT_PIN = "117";
+        constexpr std::string_view NO_CARD_RECORD = "118";
+        constexpr std::string_view TRANSACTION_NOT_PERMITTED_TO_CARDHOLDER = "119";
+        constexpr std::string_view TRANSACTION_NOT_PERMITTED_TO_TERMINAL = "120";
+        constexpr std::string_view EXCEEDS_WITHDRAWAL_LIMIT = "121";
+        constexpr std::string_view SECURITY_VIOLATION = "122";
+        constexpr std::string_view EXCEEDS_WITHDRAWAL_FREQUENCY_LIMIT = "123";
+        constexpr std::string_view VIOLATION_OF_LAW = "124";
+        constexpr std::string_view CARD_NOT_EFFECTIVE = "125";
+        constexpr std::string_view INVALID_PIN_BLOCK = "126";
+        constexpr std::string_view PIN_LENGTH_ERROR = "127";
+        constexpr std::string_view PIN_KEY_SYNC_ERROR = "128";
+        constexpr std::string_view SUSPECTED_COUNTERFEIT_CARD = "129";
+        //130-159 RESERVED FOR ISO USE
+        //160-179 RESERVED FOR NATIONAL USE
+        //180-199 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_200
+    {
+        //DENY TRANSACTION AND PICK UP CARD
+        constexpr std::string_view DO_NOT_HONOUR = "200";
+        constexpr std::string_view EXPIRED_CARD = "201";
+        constexpr std::string_view SUSPECTED_FRAUD = "202";
+        constexpr std::string_view CARD_ACCEPTOR_CONTACT_ACQUIRER = "203";
+        constexpr std::string_view RESTRICTED_CARD = "204";
+        constexpr std::string_view CARD_ACCEPTOR_CALL_ACQUIRERS_SECURITY_DEPARTMENT = "205";
+        constexpr std::string_view ALLOWABLE_PIN_TRIES_EXCEEDED = "206";
+        constexpr std::string_view SPECIAL_CONDITIONS = "207";
+        constexpr std::string_view LOST_CARD = "208";
+        constexpr std::string_view STOLEN_CARD = "209";
+        constexpr std::string_view SUSPECTED_COUNTERFEIT_CARD = "210";
+        //211-259 RESERVED FOR ISO USE
+        //260-279 RESERVED FOR NATIONAL USE
+        //280-299 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_300
+    {
+        constexpr std::string_view SUCCESSFUL = "300";
+        constexpr std::string_view NOT_SUPPORTED_BY_RECEIVER = "301";
+        constexpr std::string_view UNABLE_TO_LOCATE_RECORD_ON_FILE = "302";
+        constexpr std::string_view DUPLICATE_RECORD_OLD_RECORD_REPLACED = "303";
+        constexpr std::string_view FIELD_EDIT_ERROR = "304";
+        constexpr std::string_view FILE_LOCKED_OUT = "305";
+        constexpr std::string_view NOT_SUCCESSFUL = "306";
+        constexpr std::string_view FORMAT_ERROR = "307";
+        constexpr std::string_view DUPLICATE_NEW_RECORD_REJECTED = "308";
+        constexpr std::string_view UNKNOWN_FILE = "309";
+        //310-359 RESERVED FOR ISO USE
+        //360-379 RESERVED FOR NATIONAL USE
+        //380-399 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_400
+    {
+        constexpr std::string_view ACCEPTED = "400";
+        //401-459 RESERVED FOR ISO USE
+        //460-479 RESERVED FOR NATIONAL USE
+        //480-499 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_500
+    {
+        constexpr std::string_view RECONCILED_IN_BALANCE = "500";
+        constexpr std::string_view RECONCILED_OUT_OF_BALANCE = "501";
+        constexpr std::string_view AMOUNT_NOT_RECONCILED_TOTALS_PROVIDED = "502";
+        constexpr std::string_view TOTALS_NOT_AVAILABLE = "503";
+        constexpr std::string_view NOT_RECONCILED_TOTALS_PROVIDED = "504";
+        //505-559 RESERVED FOR ISO USE
+        //560-579 RESERVED FOR NATIONAL USE
+        //580-599 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_600
+    {
+        constexpr std::string_view ACCEPTED = "600";
+        constexpr std::string_view NOT_ABLE_TO_TRACE_BACK_ORIGINAL_TRANSACTION = "601";
+        constexpr std::string_view INVALID_REFERENCE_NUMBER = "602";
+        constexpr std::string_view REFERENCE_NUMBER_PAN_INCOMPATIBLE = "603";
+        constexpr std::string_view POS_PHOTOGRAPH_NOT_AVAILABLE = "604";
+        constexpr std::string_view ITEM_SUPPLIED = "605";
+        constexpr std::string_view REQUEST_CANNOT_BE_FULFILLED_DOCUMENTATION_NOT_AVAILABLE = "606";
+        //607-659 RESERVED FOR ISO USE
+        //660-679 RESERVED FOR NATIONAL USE
+        //680-699 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_700
+    {
+        constexpr std::string_view ACCEPTED = "700";
+        //701-749 RESERVED FOR ISO USE
+        //750-769 RESERVED FOR NATIONAL USE
+        //780-799 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_800
+    {
+        constexpr std::string_view ACCEPTED = "800";
+        //801-859 RESERVED FOR ISO USE
+        //860-879 RESERVED FOR NATIONAL USE
+        //880-899 RESERVED FOR PRIVATE USE
+    }
+    namespace MESSAGES_900
+    {
+        constexpr std::string_view ADVICE_ACKNOWLEDGED_NO_FINANCIAL_LIABILITY_ACCEPTED = "900";
+        constexpr std::string_view ADVICE_ACKNOWLEDGED_FINANCIAL_LIABILITY_ACCEPTED = "901";
+        constexpr std::string_view INVALID_TRANSACTION = "902";
+        constexpr std::string_view RE_ENTER_TRANSACTION = "903";
+        constexpr std::string_view FORMAT_ERROR = "904";
+        constexpr std::string_view ACQUIRER_NOT_SUPPORTED_BY_SWITCH = "905";
+        constexpr std::string_view CUTOVER_IN_PROCESS = "906";
+        constexpr std::string_view CARD_ISSUER_OR_SWITCH_INOPERATIVE = "907";
+        constexpr std::string_view TRANSACTION_DESTINATION_CANNOT_BE_FOUND_FOR_ROUTING = "908";
+        constexpr std::string_view SYSTEM_MALFUNCTION = "909";
+        constexpr std::string_view CARD_ISSUER_SIGNED_OFF = "910";
+        constexpr std::string_view CARD_ISSUER_TIMED_OUT= "911";
+        constexpr std::string_view CARD_ISSUER_UNAVAILABLE = "912";
+        constexpr std::string_view DUPLICATE_TRANSMISSION = "913";
+        constexpr std::string_view NOT_ABLE_TO_TRACE_BACK_TO_ORIGINAL_TRANSACTION = "914";
+        constexpr std::string_view RECONCILIATION_CUTOVER_OR_CHECKPOINT_ERROR = "915";
+        constexpr std::string_view MAC_INCORRECT = "916";
+        constexpr std::string_view MAC_KEY_SYNC_ERROR = "917";
+        constexpr std::string_view NO_COMMUNICATION_KEYS_AVAILABLE_FOR_USE = "918";
+        constexpr std::string_view ENCRYPTION_KEY_SYNC_ERROR = "919";
+        constexpr std::string_view SECURITY_SOFTWARE_HARDWARE_ERROR_TRY_AGAIN = "920";
+        constexpr std::string_view SECURITY_SOFTWARE_HARDWARE_ERROR_NO_ACTION = "921";
+        constexpr std::string_view MESSAGE_NUMBER_OUT_OF_SEQUENCE = "922";
+        constexpr std::string_view REQUEST_IN_PROGRESS = "923";
+        //924-929 RESERVED FOR ISO USE
+        //930-939 RESERVED FOR NATIONAL USE
+        //940-949 RESERVED FOR PRIVATE USE
+        constexpr std::string_view VIOLATION_OF_BUSINESS_ARRANGEMENT = "950";
+        //951-983 RESERVED FOR ISO USE
+        //984-991 RESERVED FOR NATIONAL USE
+        //992-999 RESERVED FOR PRIVATE USE
+    }
+}
 
+namespace POINT_OF_SERVICE_ENTRY_MODES
+{
+    constexpr std::string_view UNKNOWN = "00";
+    constexpr std::string_view MANUAL = "01";
+    constexpr std::string_view MAGNETIC_STRIPE = "02";
+    constexpr std::string_view BAR_CODE = "03";
+    constexpr std::string_view OCR = "04";
+    constexpr std::string_view INTEGRATED_CIRCUIT_CARD = "05";
+    constexpr std::string_view CONTACTLESS_EMV = "07";
+    constexpr std::string_view MERCHANT_HAS_CARDHOLDER_CREDENTIALS_ON_FILE = "10";
+    constexpr std::string_view FALLBACK_FROM_ICC_TO_MAGNETIC_STRIPE = "80";
+    constexpr std::string_view MAGNETIC_STRIPE_AS_READ_FROM_TRACK_2 = "90";
+    constexpr std::string_view CONTACTLESS_MAGNETIC_STRIPE = "91";
+    constexpr std::string_view ICC = "95";
+    constexpr std::string_view SAME_AS_ORIGINAL_TRANSACTION = "99";
+}
+
+namespace PIN_ENTRY_CAPABILITIES
+{
+    constexpr std::string_view UNKNOWN = "0";
+    constexpr std::string_view TERMINAL_CAN_ACCEPT_PINS = "1";
+    constexpr std::string_view TERMINAL_CANNOT_ACCEPT_PINS = "2";
 }

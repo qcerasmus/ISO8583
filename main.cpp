@@ -24,9 +24,9 @@ int main()
                                 0x44, 0x45, 0x46 //DE101
                               };
 
-    iso8583 i;
+    iso8583 i(RESPONSE_CODES::V1993);
     i.process_iso_message(std::string(&message_received[0]));
-    for (const auto value : i.values)
+    for (const auto& value : i.values)
     {
         console->debug("DE: {0}\t VALUE: {1}", (value.first) + 1, value.second);
     }
@@ -38,14 +38,16 @@ int main()
     i.set_value(BITMAP_1::_02_PAN, "1234567890123456");
     i.set_value(BITMAP_1::_07_TRANSMISSION_DATE_TIME, "0609173030");
     i.set_value(BITMAP_1::_22_POINT_OF_SERVICE_ENTRY_MODE, "ABC");
+    i.set_value(BITMAP_1::_39_RESPONSE_CODE, std::string{RESPONSE_CODES_1993::MESSAGES_0::APPROVED});
     i.set_value(BITMAP_1::_63_RESERVED_PRIVATE_3, "1234567890123456789");
     i.set_value(BITMAP_2::_101_FILE_NAME, "DEF");
     const auto generated_iso_message = i.generate_iso_message();
     console->debug(fmt::format("generated iso string: {0}", generated_iso_message));
+
     i.reset();
     console->debug("processing the generated string");
     i.process_iso_message(generated_iso_message);
-    for (const auto value : i.values)
+    for (const auto& value : i.values)
     {
         console->debug("DE: {0}\t VALUE: {1}", (value.first) + 1, value.second);
     }
