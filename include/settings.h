@@ -22,7 +22,7 @@ enum class FIELD_LENGTH
     fixed = 0,
     length_variable = 1,
     double_length_variable = 2,
-    tripple_length_variable = 3
+    triple_length_variable = 3
 };
 
 class setting
@@ -43,7 +43,7 @@ enum class RESPONSE_CODES
 class setup
 {
 public:
-    setup(const RESPONSE_CODES response_code)
+    explicit setup(const RESPONSE_CODES response_code)
     {
         setup_bitmap_1(response_code);
         setup_bitmap_2();
@@ -266,7 +266,7 @@ private:
 
         temp_setting.bit = BITMAP_1::_36_TRACK_3_DATA;
         temp_setting.type = TYPES::numeric;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 104;
         settings[BITMAP_1::_36_TRACK_3_DATA] = temp_setting;
 
@@ -326,19 +326,19 @@ private:
 
         temp_setting.bit = BITMAP_1::_46_ADDITIONAL_DATA_ISO;
         temp_setting.type = TYPES::alpha_numeric;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_46_ADDITIONAL_DATA_ISO] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_47_ADDITIONAL_DATA_NATIONAL;
         temp_setting.type = TYPES::alpha_numeric;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_47_ADDITIONAL_DATA_NATIONAL] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_48_ADDITIONAL_DATA_PRIVATE;
         temp_setting.type = TYPES::alpha_numeric;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_48_ADDITIONAL_DATA_PRIVATE] = temp_setting;
 
@@ -374,61 +374,61 @@ private:
 
         temp_setting.bit = BITMAP_1::_54_ADDITIONAL_AMOUNTS;
         temp_setting.type = TYPES::alpha_numeric;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 120;
         settings[BITMAP_1::_54_ADDITIONAL_AMOUNTS] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_55_ICC_DATA;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_55_ICC_DATA] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_56_RESERVED_ISO;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_56_RESERVED_ISO] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_57_RESERVED_NATIONAL_1;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_57_RESERVED_NATIONAL_1] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_58_RESERVED_NATIONAL_2;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_58_RESERVED_NATIONAL_2] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_59_RESERVED_NATIONAL_3;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_59_RESERVED_NATIONAL_3] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_60_RESERVED_NATIONAL_4;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_60_RESERVED_NATIONAL_4] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_61_RESERVED_PRIVATE_1;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_61_RESERVED_PRIVATE_1] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_62_RESERVED_PRIVATE_2;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_62_RESERVED_PRIVATE_2] = temp_setting;
 
         temp_setting.bit = BITMAP_1::_63_RESERVED_PRIVATE_3;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_1::_63_RESERVED_PRIVATE_3] = temp_setting;
 
@@ -678,145 +678,145 @@ private:
 
         temp_setting.bit = BITMAP_2::_104_TRANSACTION_DESCRIPTION;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 100;
         settings[BITMAP_2::_104_TRANSACTION_DESCRIPTION] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_105_RESERVED_FOR_ISO_1;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_105_RESERVED_FOR_ISO_1] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_106_RESERVED_FOR_ISO_2;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_106_RESERVED_FOR_ISO_2] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_107_RESERVED_FOR_ISO_3;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_107_RESERVED_FOR_ISO_3] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_108_RESERVED_FOR_ISO_4;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_108_RESERVED_FOR_ISO_4] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_109_RESERVED_FOR_ISO_5;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_109_RESERVED_FOR_ISO_5] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_110_RESERVED_FOR_ISO_6;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_110_RESERVED_FOR_ISO_6] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_111_RESERVED_FOR_ISO_7;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_111_RESERVED_FOR_ISO_7] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_112_RESERVED_FOR_NATIONAL_1;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_112_RESERVED_FOR_NATIONAL_1] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_113_RESERVED_FOR_NATIONAL_2;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_113_RESERVED_FOR_NATIONAL_2] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_114_RESERVED_FOR_NATIONAL_3;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_114_RESERVED_FOR_NATIONAL_3] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_115_RESERVED_FOR_NATIONAL_4;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_115_RESERVED_FOR_NATIONAL_4] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_116_RESERVED_FOR_NATIONAL_5;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_116_RESERVED_FOR_NATIONAL_5] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_117_RESERVED_FOR_NATIONAL_6;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_117_RESERVED_FOR_NATIONAL_6] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_118_RESERVED_FOR_NATIONAL_7;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_118_RESERVED_FOR_NATIONAL_7] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_119_RESERVED_FOR_NATIONAL_8;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_119_RESERVED_FOR_NATIONAL_8] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_120_RESERVED_FOR_PRIVATE_1;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_120_RESERVED_FOR_PRIVATE_1] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_121_RESERVED_FOR_PRIVATE_2;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_121_RESERVED_FOR_PRIVATE_2] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_122_RESERVED_FOR_PRIVATE_3;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_122_RESERVED_FOR_PRIVATE_3] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_123_RESERVED_FOR_PRIVATE_4;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_123_RESERVED_FOR_PRIVATE_4] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_124_RESERVED_FOR_PRIVATE_5;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_124_RESERVED_FOR_PRIVATE_5] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_125_RESERVED_FOR_PRIVATE_6;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_125_RESERVED_FOR_PRIVATE_6] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_126_RESERVED_FOR_PRIVATE_7;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_126_RESERVED_FOR_PRIVATE_7] = temp_setting;
 
         temp_setting.bit = BITMAP_2::_127_RESERVED_FOR_PRIVATE_8;
         temp_setting.type = TYPES::alpha_numeric_special;
-        temp_setting.field_length = FIELD_LENGTH::tripple_length_variable;
+        temp_setting.field_length = FIELD_LENGTH::triple_length_variable;
         temp_setting.max_length = 999;
         settings[BITMAP_2::_127_RESERVED_FOR_PRIVATE_8] = temp_setting;
 

@@ -13,7 +13,7 @@ public:
      * @brief iso8583
      * Sets up the logger to be used in this class.
      */
-    iso8583(RESPONSE_CODES response_code);
+    explicit iso8583(RESPONSE_CODES response_code);
 
     /**
      * @brief process_iso_message
@@ -22,7 +22,7 @@ public:
      * @param iso_message The message that was received.
      * @return True if the message was parsed successfully.
      */
-    bool process_iso_message(const std::string_view iso_message);
+    bool process_iso_message(std::string_view iso_message);
 
     void reset();
 
@@ -50,7 +50,7 @@ private:
      * Sets up the first bitmap of the message received.
      * @param bitmap_string basically the first 16 characters after the MTI.
      */
-    void setup_bitmap(const std::string_view bitmap_string);
+    void setup_bitmap(std::string_view bitmap_string);
 
     /**
      * @brief read_value
@@ -117,7 +117,7 @@ inline bool iso8583::set_value(int bit, const std::string& value)
         oss << std::setfill('0') << std::setw(2) << value.length();
         values[bit] = oss.str() + value;
     }
-    else if (setting.field_length == FIELD_LENGTH::tripple_length_variable)
+    else if (setting.field_length == FIELD_LENGTH::triple_length_variable)
     {
         std::ostringstream oss;
         oss << std::setfill('0') << std::setw(3) << value.length();
@@ -231,7 +231,7 @@ inline void iso8583::read_values()
             position += length;
             values[i] =  value;
         }
-        else if (setting.field_length == FIELD_LENGTH::tripple_length_variable)
+        else if (setting.field_length == FIELD_LENGTH::triple_length_variable)
         {
             auto length_as_string = std::string(full_message, position, 3);
             position += 3;
