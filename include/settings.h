@@ -9,7 +9,7 @@ enum class TYPES
     alpha = 0,
     binary = 1,
     numeric = 2,
-    journal = 3, //Will be something like 'C' or 'D' and then a number. 'C'redit or 'D'ebit
+    journal = 3, // Will be something like 'C' or 'D' and then a number. 'C'redit or 'D'ebit
     special = 4,
     alpha_numeric = 5,
     numeric_and_special = 6,
@@ -27,7 +27,7 @@ enum class FIELD_LENGTH
 
 class setting
 {
-public:
+  public:
     int bit;
     TYPES type;
     FIELD_LENGTH field_length;
@@ -42,7 +42,7 @@ enum class RESPONSE_CODES
 
 class setup
 {
-public:
+  public:
     explicit setup(const RESPONSE_CODES response_code)
     {
         setup_bitmap_1(response_code);
@@ -50,7 +50,7 @@ public:
     }
     std::map<int, setting> settings;
 
-private:
+  private:
     void setup_bitmap_1(const RESPONSE_CODES response_code)
     {
         setting temp_setting{};

@@ -4,9 +4,12 @@ project(iso8583)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_subdirectory(third_party)
 
 include_directories(include)
-include_directories(third_party/include)
+include_directories(${spdlog_cmake_SOURCE_DIR})
 
 file(GLOB HEADERS include/*.h)
 

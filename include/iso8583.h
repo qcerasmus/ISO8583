@@ -2,13 +2,14 @@
 
 #include <bitset>
 #include <iomanip>
+#include <memory>
 #include <sstream>
 
 #include "settings.h"
 
 class iso8583
 {
-public:
+  public:
     /**
      * @brief iso8583
      * Sets up the logger to be used in this class.
@@ -26,7 +27,7 @@ public:
 
     void reset();
 
-    bool set_value(int bit, const std::string& value);
+    bool set_value(int bit, const std::string &value);
 
     std::string generate_iso_message();
 
@@ -38,7 +39,8 @@ public:
     std::map<int, std::string> values;
 
     std::string mti_message;
-private:
+
+  private:
     std::unique_ptr<setup> s;
     std::bitset<64> bitmap;
     std::bitset<64> second_bitmap;
@@ -59,12 +61,10 @@ private:
      */
     void read_values();
 
-    template<std::size_t N>
-    void reverse_bitset(std::bitset<N>& b);
+    template <std::size_t N> void reverse_bitset(std::bitset<N> &b);
 };
 
-template <std::size_t N>
-void iso8583::reverse_bitset(std::bitset<N>& b)
+template <std::size_t N> void iso8583::reverse_bitset(std::bitset<N> &b)
 {
     for (std::size_t i = 0; i < N / 2; ++i)
     {
@@ -99,7 +99,7 @@ inline void iso8583::reset()
     position = 20;
 }
 
-inline bool iso8583::set_value(int bit, const std::string& value)
+inline bool iso8583::set_value(int bit, const std::string &value)
 {
     const auto setting = s->settings[bit];
     if (bit < 0 || bit > 128 || value.empty())
@@ -108,9 +108,13 @@ inline bool iso8583::set_value(int bit, const std::string& value)
         return false;
 
     if (setting.field_length == FIELD_LENGTH::fixed)
+    {
         values[bit] = value;
+    }
     else if (setting.field_length == FIELD_LENGTH::length_variable)
+    {
         values[bit] = std::to_string(value.length()) + value;
+    }
     else if (setting.field_length == FIELD_LENGTH::double_length_variable)
     {
         std::ostringstream oss;
@@ -125,7 +129,9 @@ inline bool iso8583::set_value(int bit, const std::string& value)
     }
 
     if (bit <= 63)
+    {
         bitmap.set(bit);
+    }
     else
     {
         bitmap.set(0);
@@ -229,7 +235,7 @@ inline void iso8583::read_values()
             const auto length = std::stoi(length_as_string);
             auto value = std::string(full_message, position, length);
             position += length;
-            values[i] =  value;
+            values[i] = value;
         }
         else if (setting.field_length == FIELD_LENGTH::triple_length_variable)
         {
@@ -238,7 +244,7 @@ inline void iso8583::read_values()
             const auto length = std::stoi(length_as_string);
             auto value = std::string(full_message, position, length);
             position += length;
-            values[i] =  value;
+            values[i] = value;
         }
     }
 }
